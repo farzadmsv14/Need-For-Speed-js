@@ -1,0 +1,279 @@
+:root {
+  --bg: #07070a;
+  --panel: #0f1115;
+  --accent: #0a84ff;
+  --accent2: #00e0c6;
+  --danger: #ff4d4f;
+  --light: #e9eef6;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: linear-gradient(180deg, #020204, #0b0b0f);
+  color: var(--light);
+  direction: rtl;
+}
+
+#menuBtn {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  padding: 10px 12px;
+  font-size: 20px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 80;
+}
+#sideMenu {
+  position: fixed;
+  top: 0;
+  right: -500px;
+  width: 474px;
+  height: 100%;
+  background: linear-gradient(180deg, #0b0b0f, #070708);
+  padding: 18px;
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.7);
+  transition: right 0.36s;
+  z-index: 90;
+  opacity: 0.9;
+}
+
+@media (max-width: 480px) {
+  #sideMenu.open {
+    right: 0;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  #sideMenu.open {
+    right: 0;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  #sideMenu.open {
+    right: 23%;
+  }
+}
+
+@media (min-width: 1025px) {
+  #sideMenu.open {
+    right: 37%;
+  }
+}
+
+.menuHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+#sideMenu h2 {
+  margin: 0;
+  color: var(--accent2);
+}
+#closeMenu {
+  background: transparent;
+  border: none;
+  color: var(--light);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.menuSection {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  margin-top: 14px;
+}
+.primary {
+  background: linear-gradient(90deg, var(--accent2), var(--accent));
+  border: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: #021;
+  cursor: pointer;
+  font-weight: 700;
+}
+.ghost {
+  background: #1b1b1d;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: var(--light);
+  cursor: pointer;
+}
+
+.carList {
+  display: flex;
+  gap: 2px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+.carItem {
+  width: 86px;
+  background: #0d0d0f;
+  padding: 8px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.carItem.selected {
+  border-color: rgba(10, 132, 255, 0.35);
+  box-shadow: 0 8px 24px rgba(10, 132, 255, 0.06);
+}
+.carItem img {
+  width: 70px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+.carName {
+  font-size: 12px;
+  margin-top: 6px;
+  color: #cfeef0;
+}
+
+.frame {
+  max-width: 480px;
+  margin: 42px auto;
+  padding: 12px;
+  background: linear-gradient(180deg, #0e1116, #07080a);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow: 0 14px 50px rgba(0, 0, 0, 0.6);
+}
+.hud {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.score {
+  font-weight: 700;
+}
+.status {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.hearts {
+  display: flex;
+  gap: 6px;
+}
+.heart {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  background: #2b2b2b;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #111;
+}
+.heart.full {
+  background: var(--danger);
+  color: #fff;
+}
+.nitroWrap {
+  width: 140px;
+}
+.nitroBar {
+  height: 10px;
+  background: #232323;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+.nitroFill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ffcd3c, #ff3b30);
+}
+
+canvas {
+  display: block;
+  background: #222;
+  border-radius: 10px;
+  margin: 8px auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+.score-panel {
+  margin-top: 10px;
+  padding: 10px;
+  background: #111;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 95;
+}
+.overlay.show {
+  display: flex;
+}
+.gameOverCard {
+  background: linear-gradient(180deg, #121217, #0b0b0d);
+  padding: 18px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.touchNitro {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #ffcd3c, #ff3b30);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: #121212;
+  z-index: 80;
+}
+@media (max-width: 900px) {
+  .touchNitro {
+    display: flex;
+  }
+}
+body.night {
+  background: linear-gradient(180deg, #010204, #020204);
+}
+body.night canvas {
+  background: linear-gradient(180deg, #05060a, #020204);
+}
+
+.mrg {
+  margin-top: 20px;
+}
+
+.startGame {
+  font-size: 20px;
+  width: 100%;
+}
