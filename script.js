@@ -522,4 +522,20 @@ document.addEventListener("click", function resumeAudio() {
 });
 sideMenu.classList.add("open");
 sideMenu.setAttribute("aria-hidden", "false");
-/* ---------- End of file ---------- */
+const touchLeft = document.createElement("div");
+const touchRight = document.createElement("div");
+
+touchLeft.id = "touchLeft";
+touchRight.id = "touchRight";
+
+touchLeft.style.cssText = "position:absolute;bottom:100px;left:10px;width:80px;height:80px;background:rgba(0,0,0,0.3);border-radius:50%;z-index:10;";
+touchRight.style.cssText = "position:absolute;bottom:100px;right:10px;width:80px;height:80px;background:rgba(0,0,0,0.3);border-radius:50%;z-index:10;";
+
+document.body.appendChild(touchLeft);
+document.body.appendChild(touchRight);
+
+touchLeft.addEventListener("touchstart", () => (keys["ArrowLeft"] = true));
+touchLeft.addEventListener("touchend", () => (keys["ArrowLeft"] = false));
+
+touchRight.addEventListener("touchstart", () => (keys["ArrowRight"] = true));
+touchRight.addEventListener("touchend", () => (keys["ArrowRight"] = false));
