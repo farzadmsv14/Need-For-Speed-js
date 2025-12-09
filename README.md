@@ -1,5 +1,21 @@
 Need For Speed JS 🚗💨
 
+Live Demo
+
+Try the game right now in your browser! Click below to play instantly:
+
+🎮 Play Need For Speed JS Live
+
+Or embed the game directly in your README:
+
+<iframe src="https://need-for-speed-js-xi.vercel.app/" 
+        width="100%" 
+        height="600" 
+        style="border: none;">
+</iframe>
+
+Tip: For the best experience, play on a desktop browser or a large screen. Nitro boost is activated with N or the on-screen but
+
 Need For Speed JS is a fast-paced, browser-based racing game built entirely with JavaScript!
 Race through challenging tracks, dodge obstacles, and use nitro boosts to reach the highest score possible.
 
