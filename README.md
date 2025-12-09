@@ -8,11 +8,11 @@ Try the game right now in your browser! Click below to play instantly:
 
 Or embed the game directly in your README:
 
-<iframe src="https://need-for-speed-js-xi.vercel.app/" 
-        width="100%" 
-        height="600" 
-        style="border: none;">
-</iframe>
+## 🚀 Live Demo
+
+Try the game right now in your browser!
+
+[🎮 **Play Need For Speed JS Live**](https://need-for-speed-js-xi.vercel.app/)
 
 Tip: For the best experience, play on a desktop browser or a large screen. Nitro boost is activated with N or the on-screen but
 
