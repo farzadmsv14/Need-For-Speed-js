@@ -1,11 +1,13 @@
 Need For Speed JS 🚗💨
 
 
-🌟 Live Demo
 
-Try the game right now in your browser! Click below to play instantly:
+## 🚀 Live Demo
 
-🎮 Play Need For Speed JS Live
+Try the game right now in your browser!
+
+[🎮 **Play Need For Speed JS Live**](https://need-for-speed-js-xi.vercel.app/)
+
 
 Tip: For the best experience, play on a desktop browser or a large screen. Nitro boost is activated with N or the on-screen Nitro Button on mobile devices.
 
