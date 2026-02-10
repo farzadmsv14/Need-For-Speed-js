@@ -8,6 +8,9 @@ Try the game right now in your browser!
 
 Tip: For the best experience, play on a desktop browser or a large screen. Nitro boost is activated with N or the on-screen Nitro Button on mobile devices.
 
+
+
+# Need For Speed JS
 🎮 About
 
 Need For Speed JS is a fast-paced, browser-based racing game built entirely with JavaScript!
@@ -15,6 +18,8 @@ Race through challenging tracks, dodge obstacles, and use nitro boosts to reach 
 
 This project demonstrates the power of HTML, CSS, and JavaScript in creating interactive, fun, and responsive web-based games.
 
+
+# Need For Speed JS
 🏎 Features
 
 Select Your Car – Choose from multiple car options to play as the Player.
@@ -31,6 +36,8 @@ Touch-Friendly Controls – Works seamlessly on both desktop and mobile devices.
 
 Interactive HUD – Visual nitro bar, heart/life system, and score display.
 
+
+# Need For Speed JS
 🕹 How to Play
 
 Open index.html in any modern web browser.
@@ -43,6 +50,9 @@ Avoid obstacles and try to maximize your score.
 
 Pause, resume, or restart anytime using the game menu.
 
+
+
+# Need For Speed JS
 ⌨ Controls
 Action Key / Button
 Move Left Left Arrow / Swipe Left
@@ -70,6 +80,8 @@ Make your changes.
 
 Submit a Pull Request with a detailed explanation.
 
+
+# Need For Speed JS
 🧩 Technologies Used
 
 HTML5 – Game structure and canvas rendering
@@ -84,6 +96,10 @@ Optional libraries: None – this project is pure vanilla JavaScript
 
 Feel free to add GIFs or videos here to make the README more engaging.
 
+
+
+
+# Need For Speed JS
 🤝 Contributing
 
 Contributions are welcome! You can help by:
@@ -98,12 +114,23 @@ Improving mobile support
 
 Please follow a clear commit message style and include explanations in your Pull Requests.
 
+
+
+# Need For Speed JS
 📄 License
 
 This project is licensed under the MIT License – feel free to use, modify, and distribute it.
 
+
+
+
+# Need For Speed JS
 🌟 Support / Star
 
 If you enjoy this project or find it useful, please ⭐ Star it on GitHub!
 
 Check it out & Star: GitHub Repository
+
+
+
+# Need For Speed JS
