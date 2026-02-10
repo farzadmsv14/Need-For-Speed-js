@@ -1,74 +1,182 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Need For Speed</title>
-    <link rel="stylesheet" href="style.css" />
+
+    <!-- SEO Meta Tags برای بهبود ایندکس شدن در گوگل -->
+    <meta name="description" content="A complete Need for Speed style racing game built with pure JavaScript and HTML5 Canvas. Free open-source browser game." />
+    <meta name="keywords" content="need for speed, javascript game, racing game, html5 canvas, car game, web game" />
+    <meta name="author" content="Your Name" />
+
+    <title>Need For Speed JS - Browser Racing Game</title>
+
+    <!-- Open Graph برای اشتراک‌گذاری بهتر در شبکه‌های اجتماعی -->
+    <meta property="og:title" content="Need For Speed JS - Free Browser Racing Game" />
+    <meta property="og:description" content="Play this awesome Need for Speed style racing game built with pure JavaScript!" />
+    <meta property="og:type" content="website" />
+    <!-- اگر تصویر دارید: -->
+    <!-- <meta property="og:image" content="https://yourusername.github.io/Need-For-Speed-js/assets/preview.png"> -->
+
+    <!-- Favicon -->
     <link rel="icon" href="assets/favicon.png" type="image/png" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- برای موبایل بهتر -->
+    <meta name="theme-color" content="#1a1a2e" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="manifest" href="manifest.json" crossorigin="use-credentials" />
   </head>
   <body>
-    <button id="menuBtn">☰ Menu</button>
-    <aside id="sideMenu" class="open">
+    <!-- Header و Navigation -->
+    <header class="game-header">
+      <button id="menuBtn" class="menu-toggle" aria-label="Toggle game menu">☰ Menu</button>
+      <h1 class="game-title" aria-label="Need For Speed JavaScript Edition">Need For Speed JS</h1>
+    </header>
+
+    <!-- Sidebar Menu -->
+    <aside id="sideMenu" class="game-sidebar open" aria-label="Game settings menu">
       <div class="menuHeader">
         <h2>Game Menu</h2>
-        <button id="closeMenu">✕</button>
+        <button id="closeMenu" class="close-btn" aria-label="Close menu">✕</button>
       </div>
-      <section class="mrg">
-        <button id="startBtn" class="primary startGame">Start Game</button>
+
+      <!-- Game Controls Section -->
+      <section class="menuSection" aria-labelledby="gameControlsHeading">
+        <h3 id="gameControlsHeading" class="visually-hidden">Game Controls</h3>
+        <div class="mrg">
+          <button id="startBtn" class="primary startGame" aria-label="Start game">Start Game</button>
+        </div>
+        <div class="mrg button-group">
+          <button id="pauseBtn" class="ghost" aria-label="Pause or resume game">Pause / Resume</button>
+          <button id="restartBtn" class="ghost" aria-label="Restart game">Restart Game</button>
+        </div>
       </section>
-      <section class="mrg">
-        <button id="pauseBtn" class="ghost">Pause / Resume</button>
-        <button id="restartBtn" class="ghost">Restart Game</button>
+
+      <!-- Car Selection Section -->
+      <section class="menuSection" aria-labelledby="carSelectionHeading">
+        <h3 id="carSelectionHeading">Select Car (Player)</h3>
+        <div id="carList" class="carList" role="listbox" aria-label="Available cars"></div>
       </section>
-      <section class="menuSection">
-        <h3>Select Car (Player)</h3>
-        <div id="carList" class="carList"></div>
+
+      <!-- Settings Section -->
+      <section class="menuSection" aria-labelledby="settingsHeading">
+        <h3 id="settingsHeading">Settings</h3>
+
+        <div class="setting-item mrg">
+          <label for="nightToggle">
+            <span class="setting-label">Night Mode</span>
+            <input type="checkbox" id="nightToggle" role="switch" aria-checked="false" />
+          </label>
+        </div>
+
+        <div class="setting-item mrg">
+          <label for="volume">
+            <span class="setting-label">Sound Volume</span>
+            <span class="setting-value" id="volumeValue">70%</span>
+          </label>
+          <input type="range" id="volume" min="0" max="1" step="0.05" value="0.7" aria-label="Sound volume control" aria-valuetext="70 percent" />
+        </div>
+
+        <div class="setting-item mrg">
+          <label for="nitroPower">
+            <span class="setting-label">Nitro Power</span>
+            <span class="setting-value" id="nitroPowerValue">1.3x</span>
+          </label>
+          <input type="range" id="nitroPower" min="0.5" max="2.0" step="0.1" value="1.3" aria-label="Nitro power multiplier" />
+        </div>
       </section>
-      <section class="menuSection">
-        <h3>Settings</h3>
-        <label class="mrg"
-          >Night Mode
-          <input type="checkbox" id="nightToggle" />
-        </label>
-        <label class="mrg"
-          >Sound
-          <input type="range" id="volume" min="0" max="1" step="0.05" value="0.7" />
-        </label>
-        <label class="mrg"
-          >Nitro Power
-          <input type="range" id="nitroPower" min="0.5" max="2.0" step="0.1" value="1.3" />
-        </label>
+
+      <!-- High Score Section -->
+      <section class="menuSection" aria-labelledby="highScoreHeading">
+        <h3 id="highScoreHeading" class="visually-hidden">High Score Management</h3>
+        <button id="resetBest" class="ghost warning" aria-label="Reset high score">Reset High Score</button>
       </section>
-      <section class="menuSection">
-        <button id="resetBest" class="ghost">Reset High Score</button>
-      </section>
+
+      <!-- Footer with game info -->
+      <footer class="menu-footer">
+        <p class="game-info">Need For Speed JS v1.0</p>
+        <p class="game-info">Built with HTML5 Canvas & JavaScript</p>
+      </footer>
     </aside>
-    <div class="frame">
-      <div class="hud">
-        <div class="score">Score: <span id="scoreText">0</span></div>
-        <div class="status">
-          <div class="hearts" id="hearts"></div>
-          <div class="nitroWrap">
-            <div class="mutedSmall">Nitro</div>
-            <div class="nitroBar"><div id="nitroFill" class="nitroFill"></div></div>
+
+    <!-- Main Game Container -->
+    <main class="game-container" role="main">
+      <div class="frame">
+        <!-- HUD (Heads-Up Display) -->
+        <div class="hud">
+          <div class="score" aria-live="polite" aria-atomic="true">Score: <span id="scoreText">0</span></div>
+          <div class="status">
+            <div class="hearts" id="hearts" aria-label="Player lives"></div>
+            <div class="nitroWrap">
+              <div class="mutedSmall">Nitro</div>
+              <div class="nitroBar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-label="Nitro fuel level">
+                <div id="nitroFill" class="nitroFill"></div>
+              </div>
+            </div>
           </div>
         </div>
+
+        <!-- Game Canvas -->
+        <canvas id="game" width="420" height="700" aria-label="Need For Speed game canvas"> Your browser does not support the canvas element. Please try a modern browser to play this game. </canvas>
+
+        <!-- High Score Display -->
+        <div class="score-panel" aria-live="polite">High Score: <span id="bestText">0</span></div>
       </div>
-      <canvas id="game" width="420" height="700"></canvas>
-      <div class="score-panel">High Score: <span id="bestText">0</span></div>
-    </div>
-    <div id="gameOverMenu" class="overlay">
+    </main>
+
+    <!-- Game Over Overlay -->
+    <div id="gameOverMenu" class="overlay" role="dialog" aria-labelledby="gameOverTitle" aria-hidden="true">
       <div class="gameOverCard">
-        <h1>GAME OVER</h1>
-        <p id="finalScore">Score: 0</p>
-        <div style="display: flex; gap: 8px">
-          <button id="tryAgain" class="primary">Try Again</button>
-          <button id="goHome" class="ghost">Go Back</button>
+        <h1 id="gameOverTitle">GAME OVER</h1>
+        <p id="finalScore" class="final-score">Score: 0</p>
+        <div class="game-over-buttons">
+          <button id="tryAgain" class="primary" aria-label="Try again">Try Again</button>
+          <button id="goHome" class="ghost" aria-label="Return to main menu">Go Back</button>
         </div>
       </div>
     </div>
-    <div id="touchNitro" class="touchNitro">N</div>
-    <script src="script.js"></script>
+
+    <!-- Mobile Nitro Button (برای کنترل لمسی) -->
+    <button id="touchNitro" class="touchNitro" aria-label="Activate nitro boost">N</button>
+
+    <!-- Game Scripts -->
+    <script src="script.js" defer></script>
+
+    <!-- برای SEO: Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "name": "Need For Speed JS",
+        "description": "A browser-based racing game built with JavaScript and HTML5 Canvas",
+        "applicationCategory": "Game",
+        "gamePlatform": "Web browser",
+        "genre": "Racing",
+        "author": {
+          "@type": "Person",
+          "name": "Your Name"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "operatingSystem": "Any",
+        "screenshot": "https://yourusername.github.io/Need-For-Speed-js/assets/screenshot.png",
+        "url": "https://github.com/yourusername/Need-For-Speed-js"
+      }
+    </script>
+
+    <!-- برای موبایل: Service Worker (اختیاری) -->
+    <!--
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js');
+    }
+    </script>
+    -->
   </body>
 </html>

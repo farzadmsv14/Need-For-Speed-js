@@ -10,6 +10,7 @@
 * {
   box-sizing: border-box;
 }
+
 html,
 body {
   margin: 0;
@@ -33,6 +34,7 @@ body {
   cursor: pointer;
   z-index: 80;
 }
+
 #sideMenu {
   position: fixed;
   top: 0;
@@ -77,10 +79,12 @@ body {
   align-items: center;
   margin-bottom: 12px;
 }
+
 #sideMenu h2 {
   margin: 0;
   color: var(--accent2);
 }
+
 #closeMenu {
   background: transparent;
   border: none;
@@ -96,6 +100,7 @@ body {
   justify-content: center;
   margin-top: 14px;
 }
+
 .primary {
   background: linear-gradient(90deg, var(--accent2), var(--accent));
   border: none;
@@ -105,6 +110,7 @@ body {
   cursor: pointer;
   font-weight: 700;
 }
+
 .ghost {
   background: #1b1b1d;
   border: none;
@@ -120,6 +126,7 @@ body {
   margin-top: 10px;
   flex-wrap: wrap;
 }
+
 .carItem {
   width: 86px;
   background: #0d0d0f;
@@ -132,16 +139,19 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
 .carItem.selected {
   border-color: rgba(10, 132, 255, 0.35);
   box-shadow: 0 8px 24px rgba(10, 132, 255, 0.06);
 }
+
 .carItem img {
   width: 70px;
   height: 40px;
   object-fit: contain;
   border-radius: 6px;
 }
+
 .carName {
   font-size: 12px;
   margin-top: 6px;
@@ -157,24 +167,29 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.03);
   box-shadow: 0 14px 50px rgba(0, 0, 0, 0.6);
 }
+
 .hud {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 8px;
 }
+
 .score {
   font-weight: 700;
 }
+
 .status {
   display: flex;
   gap: 12px;
   align-items: center;
 }
+
 .hearts {
   display: flex;
   gap: 6px;
 }
+
 .heart {
   width: 20px;
   height: 20px;
@@ -186,13 +201,16 @@ body {
   font-size: 12px;
   color: #111;
 }
+
 .heart.full {
   background: var(--danger);
   color: #fff;
 }
+
 .nitroWrap {
   width: 140px;
 }
+
 .nitroBar {
   height: 10px;
   background: #232323;
@@ -200,6 +218,7 @@ body {
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.03);
 }
+
 .nitroFill {
   height: 100%;
   width: 0%;
@@ -213,6 +232,7 @@ canvas {
   margin: 8px auto;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
 }
+
 .score-panel {
   margin-top: 10px;
   padding: 10px;
@@ -231,9 +251,11 @@ canvas {
   background: rgba(0, 0, 0, 0.65);
   z-index: 95;
 }
+
 .overlay.show {
   display: flex;
 }
+
 .gameOverCard {
   background: linear-gradient(180deg, #121217, #0b0b0d);
   padding: 18px;
@@ -257,14 +279,17 @@ canvas {
   color: #121212;
   z-index: 80;
 }
+
 @media (max-width: 900px) {
   .touchNitro {
     display: flex;
   }
 }
+
 body.night {
   background: linear-gradient(180deg, #010204, #020204);
 }
+
 body.night canvas {
   background: linear-gradient(180deg, #05060a, #020204);
 }
